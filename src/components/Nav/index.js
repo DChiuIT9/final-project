@@ -1,43 +1,88 @@
-import React from "react";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+// import "./style.css";
 
-function Nav() {
-  return (
+class Nav extends Component {
+  state = {
+    open: false,
+    width: window.innerWidth
+  };
 
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="/">Navbar w/ text</a>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarText">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <a className="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/">Features</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/">Pricing</a>
-          </li>
-        </ul>
-        <span class="navbar-text">
-        </span>
-      </div>
-    </nav>
-{/* <Navbar bg="light" variant="light">
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-    <Nav className="mr-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
-    </Nav>
-    <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-primary">Search</Button>
-    </Form>
-</Navbar> */}
+  updateWidth = () => {
+    const newState = { width: window.innerWidth };
 
-  );
+    if (this.state.open && newState.width > 991) {
+      newState.open = false;
+    }
+
+    this.setState(newState);
+  };
+
+  toggleNav = () => {
+    this.setState({ open: !this.state.open });
+  };
+
+  componentDidMount() {
+    window.addEventListener("resize", this.updateWidth);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWidth);
+  }
+
+  render() {
+    return (
+      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2">
+        <Link className="navbar-brand" to="/">
+          Gift Wishlist
+        </Link>
+        <button
+          onClick={this.toggleNav}
+          className="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon" />
+        </button>
+        <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
+                to="/"
+              >
+                Search
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                onClick={this.toggleNav}
+                className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
+                to="/saved"
+              >
+                Upload
+              </Link>
+            </li>
+          </ul>
+          <span className="inline">
+            
+              <Link
+                onClick={this.toggleNav}
+                className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
+                to="/login"
+              >
+                Login
+              </Link>
+            
+          </span>
+        </div>
+      </nav>
+    );
+  }
 }
 
 export default Nav;
