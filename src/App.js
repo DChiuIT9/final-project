@@ -1,7 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Login from "./pages/Login";
 import Search from "./pages/Search";
 import NotFound from "./pages/NotFound";
 import Nav from "./components/Nav";
@@ -14,6 +15,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Search} />
         <Route exact path="/wishlist" component={Search} />
+        <Route exact path="/login" component={Login} />
         <Route component={NotFound} />
       </Switch>
     </div>
