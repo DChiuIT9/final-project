@@ -4,14 +4,13 @@ import React from "react";
 
 function Search() {
   return (
-    <form>
+    <form className="center">
       <label>
         <p>Wishlist Search</p>
         <input type="text" name="name" />
       </label>
       <input type="submit" value="Submit" />
     </form>
-
   );
 }
 

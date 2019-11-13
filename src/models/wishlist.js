@@ -2,15 +2,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const wishlistSchema = new Schema({
-  title: { type: String, required: true },
-  subtitle: { type: String },
-  authors: { type: [String], required: true },
-  link: { type: String, required: true },
-  description: { type: String, required: true },
+  item: { type: String, required: true },
+  comment: { type: String },
+  link: { type: [String], required: true },
+  price: { type: Number, required: true },
   image: { type: String, required: true },
-  googleId: { type: String, required: true, unique: true }
+  amazonId: { type: String, required: true, unique: true }
 });
 
-const Gifts = mongoose.model("Book", wishlistSchema);
+const Gift = mongoose.model("Book", wishlistSchema);
 
-module.exports = Gifts;
+module.exports = Gift;
