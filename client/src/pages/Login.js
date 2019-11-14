@@ -1,6 +1,6 @@
 // import React from "react";
 import React, { Component } from "react";
-import Axios from "axios";
+import axios from "axios";
 // import { Col, Row, Container } from "../components/Grid";
 // import Jumbotron from "../components/Jumbotron";
 
@@ -54,7 +54,7 @@ class Login extends Component {
                 <input onChange={this.handleInput} type="password" name="password" />
             </label>
             <br /><br />
-            <button onClick={} type="button" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-primary">Login</button>
       </div>
     </form>
       );
