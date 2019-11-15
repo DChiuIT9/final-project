@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default {
-  getGifts: function(q) {
-    return axios.get("/api/google", { params: { q: "title:" + q } });
+  searchItems: function(input) {
+    return axios.get("/api/google", { params: { input: "title:" + input } });
   },
   // Gets all saved gifts
   getSavedGifts: function() {
