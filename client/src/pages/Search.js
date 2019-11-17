@@ -4,6 +4,7 @@ import API from "../utils/API";
 // import { Col, Row, Container } from "../components/Grid";
 // import Jumbotron from "../components/Jumbotron";
 // import CryptoJS from "crypto-js";
+import { List, ListItem } from "../components/List";
 import Gift from '../models/wishlist';
 import items from "../mock_data/parser";
 
@@ -104,14 +105,18 @@ class Search extends Component {
               <h3>No Results to Display</h3>
             )} */}
         {this.state.items.length ? (
-            this.state.items.map((itemm, i) => (
-              <ul>
-                <li>
-                  Title: {itemm.title}
-              <br />
-                  Price: {itemm.price}
-                </li>
-              </ul>
+            this.state.items.map((wishlist, i) => (
+              <ListItem key={wishlist._id}>
+                  Title: {wishlist.title}
+                  <br />
+                  Price: {wishlist.price}
+              </ListItem>
+              // <ul key={wishlist._id}>
+              //   key={wishlist._id}
+              //     Title: {wishlist.title}
+              // <br />
+              //     Price: {wishlist.price}
+              // </ul>
 
                 ))
             ) : (
