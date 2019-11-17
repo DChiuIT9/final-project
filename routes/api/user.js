@@ -6,6 +6,10 @@ router.route("/")
   .get(bookController.findAll)
   .post(bookController.create);
 
+router.route("/login")
+  .get(bookController.findAll)
+  .post(bookController.create);
+
 // Matches with "/api/books/:id"
 router
   .route("/:id")

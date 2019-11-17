@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const wishlistSchema = new Schema({
+const wishlistSchema = mongoose.Schema({
   item: { type: String, required: true },
   comment: { type: String },
   link: { type: [String], required: true },
@@ -10,6 +10,6 @@ const wishlistSchema = new Schema({
   amazonId: { type: String, required: true, unique: true }
 });
 
-const Gift = mongoose.model("Book", wishlistSchema);
+const Gift = mongoose.model("Wishlist", wishlistSchema);
 
 module.exports = Gift;

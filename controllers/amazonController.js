@@ -12,6 +12,12 @@ module.exports = {
     axios
       .get("https://www.googleapis.com/books/v1/volumes", {
         params
+        /*
+        params = {
+          Service: AWSECommerceService
+          // refer to Retrive Price AWS API
+        }
+        */
       })
       .then(results =>
         results.data.items.filter(

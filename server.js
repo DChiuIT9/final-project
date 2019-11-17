@@ -16,7 +16,16 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/finalproject");
+//mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/finalproject");
+console.log('what a bitch');
+var uristring = 'local:8080';
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/finalproject", function (err, res) {
+  if (err) {
+  console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+  console.log ('Succeeded connected to: ' + uristring);
+  }
+});
 // mongoose.connect(
 //     process.env.MONGODB_URI || "mongodb://user1:password1@ds125871.mlab.com:25871/heroku_0xn0jnk7",
 //     {
