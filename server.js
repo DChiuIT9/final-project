@@ -17,7 +17,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 //mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/finalproject");
-console.log('what a bitch');
+console.log("???---???");
 var uristring = 'local:8080';
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/finalproject", function (err, res) {
   if (err) {
@@ -27,7 +27,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/finalproject", 
   }
 });
 // mongoose.connect(
-//     process.env.MONGODB_URI || "mongodb://user1:password1@ds125871.mlab.com:25871/heroku_0xn0jnk7",
+//     process.env.MONGODB_URI || "mongodb://dchiuit9:dchiuit9@ds033449.mlab.com:33449/heroku_s7vpjv9q",
 //     {
 //       useCreateIndex: true,
 //       useNewUrlParser: true

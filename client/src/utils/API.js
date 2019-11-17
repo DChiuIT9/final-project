@@ -1,6 +1,9 @@
 import axios from "axios";
 
 export default {
+  getWishlist: function() {
+    return axios.get("/api/wishlist");
+  },
   searchItems: function(input) {
     return axios.get("/api/google", { params: { input: "title:" + input } });
   },

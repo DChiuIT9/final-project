@@ -10,8 +10,19 @@ import items from "../mock_data/parser";
 class Search extends Component {
   state = { 
     input: "",
-    items: [Gift]
+    items: []
   };
+
+  componentDidMount() {
+    this.loadWishlist();
+  }
+
+  loadWishlist = () => {
+    API.getWishlist()
+      .then(res => this.setState({ items: res.data }))
+      .catch(err => console.log(err));
+  };
+
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -62,7 +73,7 @@ class Search extends Component {
     
     <div>
         
-    {!this.state.items.length ? (
+    {/* {!this.state.items.length ? (
         <ul>
             {this.state.items.map(wishlist => {
               return (
@@ -75,9 +86,9 @@ class Search extends Component {
         </ul>
         ) : (
         <h3>No Results to Display</h3>
-        )}
+        )} */}
         {/* {this.state.items.length} */}
-
+{/* 
         {items.length ? (
             items.map((pro, i) => (
               <ul>
@@ -85,6 +96,20 @@ class Search extends Component {
               Price: {pro.price}
               <br />
               title: {pro.title}
+                </li>
+              </ul>
+
+                ))
+            ) : (
+              <h3>No Results to Display</h3>
+            )} */}
+        {this.state.items.length ? (
+            this.state.items.map((itemm, i) => (
+              <ul>
+                <li>
+                  Title: {itemm.title}
+              <br />
+                  Price: {itemm.price}
                 </li>
               </ul>
 
