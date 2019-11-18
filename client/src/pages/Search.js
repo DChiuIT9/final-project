@@ -5,6 +5,7 @@ import API from "../utils/API";
 // import Jumbotron from "../components/Jumbotron";
 // import CryptoJS from "crypto-js";
 import { List, ListItem } from "../components/List";
+import NumberFormat from "react-number-format"
 import Gift from '../models/wishlist';
 import items from "../mock_data/parser";
 
@@ -33,10 +34,10 @@ class Search extends Component {
     });
   };
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.searchItems();
-  };
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   this.searchItems();
+  // };
 
   // searchItems = () => {
   //   API.searchItems(this.state.input)
@@ -54,10 +55,10 @@ class Search extends Component {
 
 
   render () {
-    let products = [
-      {price: 3, title: 'a'},
-      {price: 5, title: 'b'},
-      {price: 4, title: 'c'}]
+    // let products = [
+    //   {price: 3, title: 'a'},
+    //   {price: 5, title: 'b'},
+    //   {price: 4, title: 'c'}]
     
     //sortingProducts = () = {products.sort((a, b) => a.price - b.price)}
 
@@ -76,15 +77,16 @@ class Search extends Component {
         <List>
           {this.state.items.map((wishlist) => (
             <ListItem key={wishlist._id}>
+              Name: {wishlist.name}
+              <br />
               Item: {wishlist.item}
               <br />
               Comment: {wishlist.comment}
               <br />
               Link: {wishlist.link}
               <br />
-              Price: {wishlist.price}
+              Price: <NumberFormat value={wishlist.price} displayType={'text'} thousandSeparator={true} prefix={'$'} />
               <br />
-              {wishlist.image}
 
             </ListItem>
           ))}

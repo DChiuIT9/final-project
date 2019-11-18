@@ -17,15 +17,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/finalproject");
-// console.log("???---???");
-// var uristring = 'local:8080';
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/finalproject", function (err, res) {
-//   if (err) {
-//   console.log ('ERROR connecting to: ' + uristring + '. ' + err);
-//   } else {
-//   console.log ('Succeeded connected to: ' + uristring);
-//   }
-// });
+
 mongoose.connect(
     process.env.MONGODB_URI || "mongodb://dchiuit9:dchiuit9@ds033449.mlab.com:33449/heroku_s7vpjv9q",
     {

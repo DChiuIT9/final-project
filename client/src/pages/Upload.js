@@ -5,25 +5,27 @@ import Gift from "../models/wishlist"
 // import Jumbotron from "../components/Jumbotron";
 
 class Upload extends Component {
+  state = {
+    name: "",
+    item: "",
+    comment: "",
+    link: "",
+    price: ""
+  }
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.creatWishlist();
-  };
+  handleChange(event) {
+    this.setState({ 
+      name: event.target.value,
+ })
+  }
 
-  creatWishlist = () => {
-    let testingObject = new Gift ({
-      item: "Oil",
-      comment: "no good",
-      link: ["http://amazon.com"],
-      price: 30,
-      image: "http://amazon.com",
-      amazonId: "12345"
-    });
-    testingObject.save (function (err) {if (err) console.log ('Error on save!')});
-  };
+  handleSubmit(event) {
+    alert(this.state.name)
+    event.preventDefault()
+  }
 
-  // testingObject.save (function (err) {if (err) console.log ('Error on save!')});
+
+
 
 
   render () {
@@ -31,6 +33,10 @@ class Upload extends Component {
     <div>
       <h3 style={{textAlign: "center"}}>Create your own list</h3>
         <form style={{padding: 30}}>
+        <div className="form-group">
+            <label for="exampleFormControlInput1">Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" />
+        </div>
         <div className="form-group">
             <label for="exampleFormControlInput1">Item</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" />
@@ -61,7 +67,7 @@ class Upload extends Component {
             </div>
         </div> */}
 
-        <input onClick={this.handleFormSubmit} type="submit" value="Submit" />
+        <input onSubmit={this.handleSubmit} type="submit" value="Submit" />
 
         </form>
     </div>
