@@ -10,10 +10,18 @@ mongoose.connect(
 
 const wishlistSeed = [
   {
-    title: "Oil",
+    item: "Motor Oil",
     comment: "no good",
     link: ["http://www.amazon.com"],
     price: 30,
+    image: "http://www.amazon.com",
+    date: new Date(Date.now())
+  },
+  {
+    item: "Puzzle",
+    comment: "very good",
+    link: ["http://www.amazon.com"],
+    price: 50,
     image: "http://www.amazon.com",
     date: new Date(Date.now())
   }

@@ -32,17 +32,21 @@ class Upload extends Component {
       <h3 style={{textAlign: "center"}}>Create your own list</h3>
         <form style={{padding: 30}}>
         <div className="form-group">
-            <label for="exampleFormControlInput1">Wishlist Name</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" />
-        </div>
-        <div className="form-group">
             <label for="exampleFormControlInput1">Item</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" />
         </div>
-
         <div className="form-group">
-            <label for="exampleFormControlSelect2">Rating</label>
+            <label for="exampleFormControlInput1">Comment</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" />
+        </div>
+        <div className="form-group">
+            <label for="exampleFormControlInput1">Link</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" />
+        </div>
 
+
+        {/* <div className="form-group">
+            <label for="exampleFormControlSelect2">Rating</label>
             <div>
             <input type="radio" value="1" checked />
             <label style={{marginLeft: ".5em", marginRight: "2em"}}>1</label>
@@ -55,8 +59,8 @@ class Upload extends Component {
             <input type="radio" value="5" />
             <label style={{marginLeft: ".5em", marginRight: "2em"}}>5</label>
             </div>
+        </div> */}
 
-        </div>
         <input onClick={this.handleFormSubmit} type="submit" value="Submit" />
 
         </form>

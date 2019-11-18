@@ -61,68 +61,38 @@ class Search extends Component {
     
     //sortingProducts = () = {products.sort((a, b) => a.price - b.price)}
 
-
   return (
     <div>
-    <form className="center">
-      <label>
-        <p>Wishlist Search</p>
-        <input onChange={this.handleInputChange} type="text" name="input" />
-      </label>
-      <input onClick={this.handleFormSubmit} type="submit" value="Submit" />
-    </form>
+      {/* <form className="center">
+        <label>
+          <p>Wishlist Search</p>
+          <input onChange={this.handleInputChange} type="text" name="input" />
+        </label>
+        <input onClick={this.handleFormSubmit} type="submit" value="Submit" />
+      </form> */}
     
-    <div>
-        
-    {/* {!this.state.items.length ? (
-        <ul>
-            {this.state.items.map(wishlist => {
-              return (
-                // wishlist
-                <div>
-            <h3>{wishlist.items}</h3>
-                </div>
-              );
-            })}
-        </ul>
-        ) : (
-        <h3>No Results to Display</h3>
-        )} */}
-        {/* {this.state.items.length} */}
-{/* 
-        {items.length ? (
-            items.map((pro, i) => (
-              <ul>
-                <li>
-              Price: {pro.price}
+      <div>
+      {this.state.items.length ? (
+        <List>
+          {this.state.items.map((wishlist) => (
+            <ListItem key={wishlist._id}>
+              Item: {wishlist.item}
               <br />
-              title: {pro.title}
-                </li>
-              </ul>
+              Comment: {wishlist.comment}
+              <br />
+              Link: {wishlist.link}
+              <br />
+              Price: {wishlist.price}
+              <br />
+              {wishlist.image}
 
-                ))
-            ) : (
-              <h3>No Results to Display</h3>
-            )} */}
-        {this.state.items.length ? (
-            this.state.items.map((wishlist, i) => (
-              <ListItem key={wishlist._id}>
-                  Title: {wishlist.title}
-                  <br />
-                  Price: {wishlist.price}
-              </ListItem>
-              // <ul key={wishlist._id}>
-              //   key={wishlist._id}
-              //     Title: {wishlist.title}
-              // <br />
-              //     Price: {wishlist.price}
-              // </ul>
-
-                ))
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-    </div>
+            </ListItem>
+          ))}
+        </List>
+      ) : (
+            <h3>No Results to Display</h3>
+          )}
+      </div>
     
     </div>
   )};

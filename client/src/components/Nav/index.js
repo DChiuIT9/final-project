@@ -68,7 +68,7 @@ class Nav extends Component {
               </Link>
             </li>
           </ul>
-          <span className="inline">
+          {/* <span className="inline">
             
               <Link
                 onClick={this.toggleNav}
@@ -78,7 +78,7 @@ class Nav extends Component {
                 Login
               </Link>
             
-          </span>
+          </span> */}
         </div>
       </nav>
     );
