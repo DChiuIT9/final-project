@@ -1,78 +1,113 @@
-// import React from "react";
 import React, { Component } from "react";
-import Gift from "../models/wishlist"
-// import { Col, Row, Container } from "../components/Grid";
-// import Jumbotron from "../components/Jumbotron";
+import { Redirect } from 'react-router-dom';
+import axios from "axios";
+import API from "../utils/API";
+
 
 class Upload extends Component {
+
   state = {
-    name: "",
-    item: "",
-    comment: "",
-    link: "",
-    price: ""
-  }
-
-  handleChange(event) {
-    this.setState({ 
-      name: event.target.value,
- })
-  }
-
-  handleSubmit(event) {
-    alert(this.state.name)
-    event.preventDefault()
-  }
+      name: "",
+      item: "",
+      comment: "",
+      link: "",
+      price: ""
+  };
 
 
+  handleChange = event => {
+    const { name, value } = event.target;
+		this.setState({
+      [name]: value
+    })
+	};
 
+
+	handleSubmit = event => {
+		console.log(this.state.name);
+		event.preventDefault();
+
+    API.saveWishlist({
+      name: this.state.name,
+      item: this.state.item,
+      comment: this.state.comment,
+      link: this.state.link,
+      price: this.state.price
+    }).then()
+    .catch(err => console.log(err));
+
+  };
 
 
   render () {
     return (
-    <div>
-      <h3 style={{textAlign: "center"}}>Create your own list</h3>
-        <form style={{padding: 30}}>
+      <div><h3 style={{textAlign: "center"}}>Create your own list</h3>
+      <form onSubmit={this.handleSubmit} style={{padding: 30}}>
         <div className="form-group">
-            <label for="exampleFormControlInput1">Name</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" />
+          <label>Name</label>
+          <input 
+            type="text" 
+            className="form-control" 
+            id="exampleFormControlInput1" 
+            name="name"
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
         </div>
         <div className="form-group">
-            <label for="exampleFormControlInput1">Item</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" />
+          <label>Item</label>
+          <input 
+            type="text" 
+            className="form-control" 
+            id="exampleFormControlInput1" 
+            name="item"
+            value={this.state.item}
+            onChange={this.handleChange}
+          />
         </div>
         <div className="form-group">
-            <label for="exampleFormControlInput1">Comment</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" />
+          <label for="exampleFormControlInput1">Comment</label>
+          <input type="text" 
+          className="form-control" 
+          id="exampleFormControlInput1" 
+          name="comment"
+          value={this.state.comment}
+          onChange={this.handleChange}
+          />
         </div>
         <div className="form-group">
-            <label for="exampleFormControlInput1">Link</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" />
+          <label for="exampleFormControlInput1">Link</label>
+          <input type="text" 
+          className="form-control" 
+          id="exampleFormControlInput1" 
+          name="link"
+          value={this.state.link}
+          onChange={this.handleChange}
+          />
         </div>
-
-
-        {/* <div className="form-group">
-            <label for="exampleFormControlSelect2">Rating</label>
-            <div>
-            <input type="radio" value="1" checked />
-            <label style={{marginLeft: ".5em", marginRight: "2em"}}>1</label>
-            <input type="radio" value="2" />
-            <label style={{marginLeft: ".5em", marginRight: "2em"}}>2 </label>
-            <input type="radio" value="3" />
-            <label style={{marginLeft: ".5em", marginRight: "2em"}}>3</label>
-            <input type="radio" value="4" />
-            <label style={{marginLeft: ".5em", marginRight: "2em"}}>4</label>
-            <input type="radio" value="5" />
-            <label style={{marginLeft: ".5em", marginRight: "2em"}}>5</label>
-            </div>
-        </div> */}
-
-        <input onSubmit={this.handleSubmit} type="submit" value="Submit" />
+        <div className="form-group">
+          <label for="exampleFormControlInput1">Price</label>
+          <input type="number" 
+          className="form-control" 
+          id="exampleFormControlInput1" 
+          name="price"
+          value={this.state.price}
+          onChange={this.handleChange}
+          />
+        </div>
+          <br />
+          <button
+            className="btn btn-primary"
+            onClick={this.handleSubmit}
+            type="submit"
+          >Submit</button>
 
         </form>
-    </div>
-
-    )};
+        </div>
+      )
+  };
+  
 }
+
 
 export default Upload;

@@ -1,10 +1,12 @@
 const path = require("path");
 const router = require("express").Router();
 // const userRoutes = require("./user");
+const userRoutes = require("./user");
 const wishlistRoutes = require("./wishlist");
 
 // router.use("/users", userRoutes);
 
+router.use("/user", userRoutes);
 router.use("/wishlist", wishlistRoutes);
 
 // For anything else, render the html page

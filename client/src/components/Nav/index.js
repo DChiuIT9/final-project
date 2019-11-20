@@ -68,17 +68,17 @@ class Nav extends Component {
               </Link>
             </li>
           </ul>
-          {/* <span className="inline">
+          <span className="inline">
             
               <Link
                 onClick={this.toggleNav}
-                className={window.location.pathname === "/login" ? "nav-link active" : "nav-link"}
-                to="/login"
+                className={window.location.pathname === "/login-signup" ? "nav-link active" : "nav-link"}
+                to="/login-signup"
               >
-                Login
+                Login/Sign up
               </Link>
             
-          </span> */}
+          </span>
         </div>
       </nav>
     );

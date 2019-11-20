@@ -4,19 +4,17 @@ export default {
   getWishlist: function() {
     return axios.get("/api/wishlist");
   },
-  searchItems: function(input) {
-    return axios.get("/api/google", { params: { input: "title:" + input } });
-  },
-  // Gets all saved gifts
-  // getSavedGifts: function() {
-  //   return axios.get("/api/gifts");
+  // searchItems: function(input) {
+  //   return axios.get("/api/google", { params: { input: "title:" + input } });
   // },
-  deleteWishlist: function(id) {
-    return axios.delete("/api/gifts/" + id);
+
+  saveWishlist: function(wishlistData) {
+    return axios.post("/api/wishlist", wishlistData);
   },
-  // saveGift: function(bookData) {
-  //   return axios.post("/api/gifts", bookData);
+  // deleteWishlist: function(id) {
+  //   return axios.delete("/api/wishlist/" + id);
   // },
+
   authenticateUser: function(userData) {
     return axios.post('/login', userData);
   }
