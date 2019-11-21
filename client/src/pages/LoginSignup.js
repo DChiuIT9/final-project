@@ -29,7 +29,7 @@ class LoginSignup extends Component {
 		})
 	}
 	handleSignupSubmit(event) {
-		console.log('sign-up handleSubmit, username: ')
+		console.log("sign-up handleSubmit, username: ")
 		console.log(this.state.username)
 		event.preventDefault()
 
@@ -42,15 +42,15 @@ class LoginSignup extends Component {
 			.then(response => {
 				console.log(response)
 				if (!response.data.errmsg) {
-					console.log('successful signup')
+					console.log("successful signup")
 					this.setState({ //redirect to login page
-						redirectTo: '/'
+						redirectTo: "/login-signup"
 					})
 				} else {
-					console.log('username already taken')
+					console.log("username already taken")
 				}
 			}).catch(error => {
-				console.log('signup error: ')
+				console.log("signup error: ")
 				console.log(error)
 
 			})
@@ -58,7 +58,7 @@ class LoginSignup extends Component {
     
     handleLoginSubmit(event) {
         event.preventDefault()
-        console.log('handleSubmit')
+        console.log("handleLoginSubmit")
 
         axios
             // .post(this.baseUrl + '/login', {
@@ -67,7 +67,7 @@ class LoginSignup extends Component {
                 password: this.state.password
             })
             .then(response => {
-                console.log('login response: ')
+                console.log("login response: ")
                 console.log(response)
                 if (response.status === 200) {
                     // update App.js state
@@ -75,11 +75,11 @@ class LoginSignup extends Component {
                     this.setState({
                         loggedIn: true,
                         username: response.data.username,
-                        redirectTo: '/'
+                        redirectTo: "/upload"
                     });
                 }
             }).catch(error => {
-                console.log('login error: ')
+                console.log("login error: ")
                 console.log(error);
                 
             })
