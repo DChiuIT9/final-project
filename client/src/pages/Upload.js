@@ -38,7 +38,7 @@ class Upload extends Component {
     // .then(window.location.reload(false))
     .then()
     .catch(err => console.log(err));
-    window.location.reload(false)
+    // window.location.reload(false)
 
   };
 
