@@ -51,6 +51,7 @@ var allowCrossDomain = function(req, res, next) {
 
 app.use(allowCrossDomain);
 
+// dotenv
 require('dotenv').config()
 
 // Connect to the Mongo DB
