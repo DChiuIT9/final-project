@@ -61,7 +61,8 @@ class LoginSignup extends Component {
         console.log('handleSubmit')
 
         axios
-            .post(this.baseUrl + '/login', {
+            // .post(this.baseUrl + '/login', {
+            .post("/api/user/login", {
                 username: this.state.username,
                 password: this.state.password
             })
