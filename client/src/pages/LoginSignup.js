@@ -1,4 +1,3 @@
-// import React from "react";
 import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
 import axios from "axios";
@@ -153,7 +152,6 @@ class LoginSignup extends Component {
                         type="submit"
                         style={{marginRight: "4em"}}
                         >Sign up</button>
-                    {/* <button type="button" class="btn btn-primary" style={{marginRight: "4em"}}>Sign up</button> */}
 
                     <button
                         className="btn btn-primary"

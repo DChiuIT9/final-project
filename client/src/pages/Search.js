@@ -55,23 +55,9 @@ class Search extends Component {
 
 
   render () {
-    // let products = [
-    //   {price: 3, title: 'a'},
-    //   {price: 5, title: 'b'},
-    //   {price: 4, title: 'c'}]
-    
-    //sortingProducts = () = {products.sort((a, b) => a.price - b.price)}
 
   return (
     <div>
-      {/* <form className="center">
-        <label>
-          <p>Wishlist Search</p>
-          <input onChange={this.handleInputChange} type="text" name="input" />
-        </label>
-        <input onClick={this.handleFormSubmit} type="submit" value="Submit" />
-      </form> */}
-    
       <div>
       {this.state.items.length ? (
         <List>
