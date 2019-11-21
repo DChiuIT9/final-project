@@ -58,22 +58,22 @@ require('dotenv').config()
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/finalproject");
 
 // Connect to the Mongo DB (testing on Heroku)
-mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://" + process.env.db_id + ":" + process.env.db_pw + "@ds033449.mlab.com:33449/heroku_s7vpjv9q",
-    {
-      useCreateIndex: true,
-      useNewUrlParser: true
-    }
-);
-
-// Connect to the Mongo DB (production on Heroku)
 // mongoose.connect(
-//     process.env.MONGODB_URI || "mongodb://" + process.env.db_id + ":" + process.env.db_pw + "@dbh23.mlab.com:27237/heroku_32fc1tfr",
+//     process.env.MONGODB_URI || "mongodb://" + process.env.db_id + ":" + process.env.db_pw + "@ds033449.mlab.com:33449/heroku_s7vpjv9q",
 //     {
 //       useCreateIndex: true,
 //       useNewUrlParser: true
 //     }
 // );
+
+// Connect to the Mongo DB (production on Heroku)
+mongoose.connect(
+    process.env.MONGODB_URI || "mongodb://" + process.env.db_id + ":" + process.env.db_pw + "@dbh23.mlab.com:27237/heroku_32fc1tfr",
+    {
+      useCreateIndex: true,
+      useNewUrlParser: true
+    }
+);
 
 // Start the API server
 app.listen(PORT, function() {

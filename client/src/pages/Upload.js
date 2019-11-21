@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 // import axios from "axios";
 import API from "../utils/API";
 
@@ -11,7 +11,8 @@ class Upload extends Component {
       item: "",
       comment: "",
       link: "",
-      price: ""
+      price: "",
+      // redirectTo: null
   };
 
 
@@ -35,8 +36,9 @@ class Upload extends Component {
       price: this.state.price
     })
     // .then(window.location.reload(false))
-    .then(window.location.reload())
+    .then()
     .catch(err => console.log(err));
+    window.location.reload(false)
 
   };
 

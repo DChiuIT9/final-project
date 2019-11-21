@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 // import axios from "axios";
 import API from "../utils/API";
-// import { Col, Row, Container } from "../components/Grid";
-// import Jumbotron from "../components/Jumbotron";
-// import CryptoJS from "crypto-js";
 import { List, ListItem } from "../components/List";
 import NumberFormat from "react-number-format"
 

@@ -8,7 +8,6 @@ const wishlistSchema = new Schema({
   price: { type: Number, required: true },
   image: { type: String, required: true },
   date: { type: Date, default: Date.now }
-  // amazonId: { type: String, required: true, unique: true }
 });
 
 const Wishlist = mongoose.model("Wishlist", wishlistSchema);
