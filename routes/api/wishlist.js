@@ -7,7 +7,7 @@ router
   .get(wishlistController.findAll)
   .post(wishlistController.create);
 
-router.route("/upload").post(wishlistController.create);
+// router.route("/upload").post(wishlistController.create);
 
 router.route("/create").post(function (req, res) {
   var wishListItem = new wishList();
