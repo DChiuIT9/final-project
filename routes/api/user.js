@@ -2,32 +2,36 @@ const express = require('express')
 const router = express.Router()
 const User = require('../../models/user')
 const passport = require('../../passport')
+const loginController = require("../../controllers/loginController");
 
-router.post('/', (req, res) => {
-    console.log('user signup');
+router.post('/', (res,req) => {
+    console.log('======================   user.js Endpoint: /  ==================');
+    let login = req.req.body;
+    let result = loginController.findById(login,req);
+    let _username = login.username;
+    let _password = login.password;
 
-    const { username, password } = req.body
-    // ADD VALIDATION
-    User.findOne({ username: username }, (err, user) => {
+    User.findOne({username: _username}, (err, user) => {
         if (err) {
-            console.log('User.js post error: ', err)
+            console.log('======================   user.js Server Error  ==================');
         } else if (user) {
-            res.json({
-                error: `Sorry, already a user with the username: ${username}`
-            })
-        }
-        else {
+            console.log('======================   user.js Existing Found  ==================');
+        } else {
+            console.log('======================   user.js Create User  ==================');
             const newUser = new User({
-                username: username,
-                password: password
+                username: _username,
+                password: _password
             })
             newUser.save((err, savedUser) => {
-                if (err) return res.json(err)
-                res.json(savedUser)
+                if (err) {
+                    return {error: err};
+                }    
+                console.log('======================   user.js New User Saved  ==================');
+                return {user: savedUser}; 
             })
         }
-    })
-})
+    });
+});
 
 router.post(
     '/login',

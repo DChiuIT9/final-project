@@ -18,6 +18,8 @@ class Search extends Component {
   }
 
   loadWishlist = () => {
+    if (this.props.location.state)
+    console.log(this.props.location.state.username);
     API.getWishlist()
       .then(res => this.setState({ items: res.data }))
       .catch(err => console.log(err));

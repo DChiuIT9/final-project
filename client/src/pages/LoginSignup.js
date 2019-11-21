@@ -13,12 +13,16 @@ class LoginSignup extends Component {
 			username: '',
 			password: '',
             confirmPassword: '',
-            redirectTo: null
+            redirectTo: null,
+            loggedIn: false
         }
         this.handleChange = this.handleChange.bind(this)
 		this.handleSignupSubmit = this.handleSignupSubmit.bind(this)
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this)
+        this.baseUrl = "http://localhost:3000/api/user"
+
     }
+
 
 	handleChange(event) {
 		this.setState({
@@ -31,7 +35,7 @@ class LoginSignup extends Component {
 		event.preventDefault()
 
 		//request to server to add a new username/password
-		axios.post('/user/', {
+		axios.post(this.baseUrl + '/', {
 			username: this.state.username,
 			password: this.state.password
 		})
@@ -57,7 +61,7 @@ class LoginSignup extends Component {
         console.log('handleSubmit')
 
         axios
-            .post('/user/login', {
+            .post(this.baseUrl + '/login', {
                 username: this.state.username,
                 password: this.state.password
             })
@@ -66,14 +70,12 @@ class LoginSignup extends Component {
                 console.log(response)
                 if (response.status === 200) {
                     // update App.js state
-                    this.props.updateUser({
-                        loggedIn: true,
-                        username: response.data.username
-                    })
-                    // update the state to redirect to home
+                    window.sessionStorage.setItem('username', response.data.username);
                     this.setState({
+                        loggedIn: true,
+                        username: response.data.username,
                         redirectTo: '/'
-                    })
+                    });
                 }
             }).catch(error => {
                 console.log('login error: ')
@@ -114,7 +116,7 @@ class LoginSignup extends Component {
 
     render () {
         if (this.state.redirectTo) {
-            return <Redirect to={{ pathname: this.state.redirectTo }} />
+            return <Redirect to={{ pathname: this.state.redirectTo, state: {username: this.state.username}}} />
         } else {
             return (
             

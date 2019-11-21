@@ -28,7 +28,7 @@ class Upload extends Component {
 		event.preventDefault();
 
     API.saveWishlist({
-      name: this.state.name,
+      name: this.state.name ? this.state.name : window.sessionStorage.getItem('username'),
       item: this.state.item,
       comment: this.state.comment,
       link: this.state.link,
@@ -50,7 +50,7 @@ class Upload extends Component {
             className="form-control" 
             id="exampleFormControlInput1" 
             name="name"
-            value={this.state.name}
+            value={window.sessionStorage.getItem('username')}
             onChange={this.handleChange}
           />
         </div>
