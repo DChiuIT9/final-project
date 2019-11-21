@@ -33,7 +33,7 @@ class Upload extends Component {
       comment: this.state.comment,
       link: this.state.link,
       price: this.state.price
-    }).then()
+    }).then(window.location.reload(false))
     .catch(err => console.log(err));
 
   };
