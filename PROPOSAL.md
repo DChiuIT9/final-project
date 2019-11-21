@@ -24,7 +24,7 @@ Users log into the website and it allows them to input the gift wishlist they wa
 
 ### Website Wireframe
 
-![alt](./assets/img/gift_wishlist.jpg)
+![alt](./client/public/assets/img/gift_wishlist.jpg)
 
 
 ### Member:

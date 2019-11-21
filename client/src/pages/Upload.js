@@ -35,10 +35,12 @@ class Upload extends Component {
       price: this.state.price
     })
     // .then(window.location.reload(false))
-    .then()
+    .then(window.location.reload())
     .catch(err => console.log(err));
 
   };
+
+
 
 
   render () {

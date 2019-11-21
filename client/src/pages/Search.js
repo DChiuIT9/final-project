@@ -63,15 +63,17 @@ class Search extends Component {
         <List>
           {this.state.items.map((wishlist) => (
             <ListItem key={wishlist._id}>
-              Name: {wishlist.name}
+              <strong>Name: </strong>{wishlist.name}
               <br />
-              Item: {wishlist.item}
+              <strong>Item: </strong>{wishlist.item}
               <br />
-              Comment: {wishlist.comment}
+              <strong>Comment: </strong>{wishlist.comment}
               <br />
-              Link: {wishlist.link}
+              <strong>Link: </strong>
+              {/* <img src="../../public/assets/img/icons8-external-link-24.png" alt="" /> */}
+              <a target="_blank" href={wishlist.link}>(Open in new tab)</a>
               <br />
-              Price: <NumberFormat value={wishlist.price} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+              <strong>Price: </strong><NumberFormat value={wishlist.price} displayType={'text'} thousandSeparator={true} prefix={'$'} />
               <br />
 
             </ListItem>
